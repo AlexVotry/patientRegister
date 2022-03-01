@@ -1,0 +1,65 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+div.calendar_default_corner_inner > div {
+  background-color: aqua;
+  display: none !important;
+}
+
+.submit-button {
+  /* width: 100px; */
+  border-radius: 20px;
+  background-color:  #c06c84;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  white-space: nowrap;
+  color: #355c7d;
+  margin-bottom: 20px;
+}
+
+.submit-button:hover {
+    background-color: #f67280;
+}
+
+.container {
+    background-image: linear-gradient(to right, #355c7d,#6c5b7b,#c06c84,#f67280,#f8b195);
+    height: 100vh;
+    width: 100vw;
+}
+
+form {
+  border: 2px solid #355c7d;
+  border-radius: 10px;
+  background-color: white;
+  padding: 10px;
+  margin: 10px;
+  width: 90%;
+}
+
+.button-row {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* 
+darkest: #355c7d
+dark: #6c5b7b
+mid: #c06c84
+light: #f67280
+lightest: #f8b195
+ */

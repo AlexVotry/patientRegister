@@ -3,12 +3,20 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@daypilot/daypilot-lite-react": "^3.2.0",
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.3",
     "@testing-library/user-event": "^13.5.0",
+    "axios": "^0.26.0",
+    "cloudinary": "^1.28.1",
+    "cloudinary-react": "^1.7.1",
+    "daypilot-pro-react": "https://npm.daypilot.org/daypilot-pro-react/trial/2022.1.5225.tar.gz",
+    "import": "^0.0.6",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-router-dom": "^6.2.1",
     "react-scripts": "5.0.0",
+    "socket.io-client": "^4.4.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

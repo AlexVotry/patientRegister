@@ -1,0 +1,29 @@
+.navbar {
+    height: 100px;
+    width: 100%;
+    background-color: #355c7d;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-links {
+    color: white;
+    display: flex;
+}
+
+.navbar-brand {
+    height: 70%;
+}  
+
+.navbar-brand img {
+    height: 100%;
+}
+
+a {
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 1.2em;
+}
