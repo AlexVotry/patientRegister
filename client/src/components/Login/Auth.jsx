@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Login from './Login';
 import PatientInfo from '../PatientInfo/PatientInfo';
+import booth from '../../assets/booth.png';
 import './Login.css';
 
 export default function Auth() {
@@ -18,8 +19,16 @@ export default function Auth() {
         }
         if (showForm === 'register') {
             return <PatientInfo />
+        } else {
+            return (
+                <div className='welcome'>
+                    <h3>Welcome to Dr. Who's Office</h3>
+                    <h4>Please sign in or register as a new patient.</h4>
+                    <h4>You will then be sent to a calender to choose an appointment time</h4>
+                    <h5>Thank you for choosing Dr. Who</h5>
+                </div>
+            )
         }
-        return null;
     }
 
     return (
@@ -32,6 +41,7 @@ export default function Auth() {
                 </div>
                 {renderForm()}
             </div>
+            <img id="booth" src={booth} alt="booth" />
         </div>
     )
 }

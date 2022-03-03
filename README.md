@@ -13,11 +13,15 @@ this app connects to a mongodb in the cloud.
 
 User can login or register.  The login is authenticated with passport-local-mongoose. 
 
-You can login as an administrator (email: drwho@email.com, pw: secret),
+You can login as an administrator:
+
+`email: drwho@email.com, pw: secret`
+
 or you can register using whatever info you like.
 
 You will be sent to the calendar and you can choose when to make an appointment.
-this app fulfills these requirements:
+
+This app fulfills these requirements:
 Requirements​:
 1. The patient has to submit their name, date of birth, phone number, email, address, photo (driver license) and appointment time to register.
 2. The admin should be able to view all the registered patients from the website.
@@ -32,4 +36,7 @@ editing and removing patients,
 admins ability to add other admins,
 use websocket for scheduling to be real-time,
 
+Thank you for taking the time to look. I currently have a full time job along with other commitments so spending 48hrs of my free time would be difficult to manage inside a week.
 
+![Screenshot](screenshots/login.png)
+![Screenshot](screenshots/patientList.png)
