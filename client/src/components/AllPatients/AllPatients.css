@@ -29,7 +29,7 @@
 }
 
 p {
-    margin-right: 5px;
+    margin: 0 5px 0 0;
 }
 
 .patient-name {
@@ -39,6 +39,10 @@ p {
     color: white;
 }
 
+.patient-name:hover {
+    color: #f8b195;
+}
+
 .each-patient {
     height: 40px;
 }
@@ -46,6 +50,17 @@ p {
 .bolden {
     font-weight: 700;
 }
+
+.address-box {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+
+/* .address {
+    margin: 0 20px;
+} */
 
 /* darkest: #355c7d
 dark: #6c5b7b

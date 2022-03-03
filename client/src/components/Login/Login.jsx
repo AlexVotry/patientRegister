@@ -4,23 +4,18 @@ import apiAgents from '../../service/apiAgent';
 import UserContext from '../../contexts/UserContext';
 import './Login.css';
 
-export default function Login ({setShow}) {
+export default function Login ({setShow, setShowForm}) {
     const [formInfo, setFormInfo] = useState({email: '', password: ''});
     const [user, setUser] = UserContext.useUser();
 
     const loadUser = async () => {
         try {
             const thisUser = await apiAgents.Auth.login(formInfo);
-            if (thisUser) {
-                console.log('thisUser:', thisUser);
-                setUser(thisUser);
-            } else {
-                // TODO: make pop up with Link to new patient.
-                console.log('You are not a current patient');
-            }
+            setUser(thisUser);
         } catch (error) {
             if (error.response.status === 401) {
                 setShow(true);
+                setShowForm('register');
             }
             console.log('no user on login:', error);
         }

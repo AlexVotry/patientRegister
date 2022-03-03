@@ -4,3 +4,8 @@
     width: 100%;
     margin: 10px;
 }
+
+small {
+    float: right;
+    color: red;
+}

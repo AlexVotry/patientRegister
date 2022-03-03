@@ -1,6 +1,7 @@
 const initUser = {
     firstName: '',
     lastName: '',
+    birthDate: '',
     phone: '',
     email: '',
     streetAddress: '',

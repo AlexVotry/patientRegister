@@ -30,15 +30,19 @@ export default function AllPatients() {
     },[allPatients, loadPatients])
 
     const renderRestOfData = (patient) => {
-        const { email } = patient;
+        const { email, birthDate } = patient;
+        const dob = new Date(birthDate);
+        const birth = birthDate ? dob.toDateString().split(' ').slice(1).join(' ') : null;
+        console.log(dob);
         if (chosen[email] && !show)
         return (
             <div className="patient-popup">
                 <button className="close-button" type="button" onClick={() => setChosen({[email]: false})}>X</button>
                 <h2>{patient.firstName} {patient.lastName}</h2>
+                <div>birth: <span className="bolden">{birth}</span></div>
                 <div>phone: <span className="bolden">{patient.phone}</span></div>
                 <p>email: <span className="bolden">{email}</span></p>
-                <div className="address">
+                <div className="address-box">
                     <p>address:</p>
                     <div className="address-data">
                         <div className="bolden" >{patient.streetAddress}</div>
@@ -69,7 +73,7 @@ export default function AllPatients() {
                     <button className="patient-name" type="button" onClick={() => chooseWisely(email)}>
                         <h2 >{firstName} {lastName}</h2>
                     </button>
-                   {renderRestOfData(patient)}
+                   {chosen[email] ? renderRestOfData(patient) : null}
                 </div>
             )
         });

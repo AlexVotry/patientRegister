@@ -14,7 +14,7 @@ export default function Auth() {
 
     const renderForm = () => {
         if (showForm === 'login') {
-            return <Login setShow={setShow} />
+            return <Login setShow={setShow} setShowForm={setShowForm} />
         }
         if (showForm === 'register') {
             return <PatientInfo />
@@ -24,8 +24,8 @@ export default function Auth() {
 
     return (
         <div className="container">
-            {showPop()}
             <div className="message-box">
+            {showPop()} 
                 <div className="button-row">
                     <button className="auth-button" onClick={() => setShowForm('register')}>register</button>
                     <button className="auth-button" onClick={() => setShowForm('login')}>login</button>

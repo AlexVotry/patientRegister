@@ -1,6 +1,5 @@
 const socketio = require('socket.io');
 const cors = require('cors');
-// const socketMain = require('./socketMain');
 const express = require('express');
 const mongoose = require('mongoose');
 const passport = require('passport');
@@ -11,7 +10,6 @@ const app = express();
 const PORT = process.env.PORT || 8181;
 const expTime = 30 * 24 * 60 * 60 * 1000; // 30 days
 require('./models');
-require('./service/passport');
 app.use(cors());
 
 const uri = keys.mongoURI;

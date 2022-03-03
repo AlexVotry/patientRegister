@@ -20,7 +20,7 @@ export default function Header({auth}) {
             default:
                 return (
                     <div className="header-links">
-                        <Link to={'/Scheduler'}>Make an Appointment</Link>
+                        <Link to={'/'}>Make an Appointment</Link>
                         {user.admin ? (
                         <Link to={'/AllPatients'}>See Patient list</Link>
                         ) : null }

@@ -11,10 +11,6 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-div.calendar_default_corner_inner > div {
-  background-color: aqua;
-  display: none !important;
-}
 
 .submit-button {
   /* width: 100px; */

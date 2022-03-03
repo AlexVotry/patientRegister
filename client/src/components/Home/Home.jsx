@@ -1,10 +1,22 @@
-import React from 'react';
-import './Home.css';
+import React, { useCallback } from 'react';
+import Calendar from '../Calendar/Calendar';
+import PatientInfo from '../PatientInfo/PatientInfo';
+import UserContext from '../../contexts/UserContext';
 
-export default function Home () {
+export default function Home() {
+    const [user] = UserContext.useUser();
+
+    const showCalendar = useCallback(() => {
+        if (user.email) {
+            return <Calendar user={user} />
+        }
+        return null;
+    }, [user]);
+
     return (
-        <div className="container">
-            Home
-        </div>
+        <>
+            {user.email ? null : <PatientInfo />}
+            {showCalendar()}
+        </>
     )
 }

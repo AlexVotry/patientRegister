@@ -5,7 +5,7 @@ module.exports = app => {
     app.post('/api/users', (req, res) => {
         const profile = req.body;
         const password = profile.password;
-        profile.admin = false;
+        profile.admin = true;
         console.log('profile:', profile);
         const newUser = new User(profile);
      

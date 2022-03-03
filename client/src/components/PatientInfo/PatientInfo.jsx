@@ -11,15 +11,13 @@ export default function PatientInfo() {
     const handleChange = (e) => {
         const key = e.target.id;
         const val = e.target.value;
-        setPatient( prevState => ({ ...prevState, [key]: val }));
+        setPatient( prevState => ({ ...prevState, [key]: val.toString() }));
     };
 
     const handleSubmit = (e) => {
-        console.log('submit:', e);
         e.preventDefault();
         if (patient.imageId) {
             try {
-                console.log('new Patient:', patient);
                 apiAgents.Users.add(patient);
             } catch (e) {
                 console.log('new patient error:', e);
@@ -32,8 +30,10 @@ export default function PatientInfo() {
         <form onSubmit={handleSubmit}>
             <Input label="First Name" id="firstName" handleChange={handleChange} />
             <Input label="Last Name" id="lastName" handleChange={handleChange} />
-            <Input label="Phone Number" id="phone" handleChange={handleChange} />
-            <Input label="email" id="email" handleChange={handleChange} />
+            <Input label="Date of Birth" type="date" id="birthDate" handleChange={handleChange} />
+            <small>Format: 123-456-7890</small>
+            <Input label="Phone Number" type="tel" id="phone" handleChange={handleChange} />
+            <Input label="email" type="email" id="email" handleChange={handleChange} />
             <Input label="Street Address" id="streetAddress" handleChange={handleChange} />
             <Input label="City" id="city" handleChange={handleChange} />
             <Input label="State" id="state" handleChange={handleChange} />
