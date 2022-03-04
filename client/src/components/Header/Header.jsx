@@ -8,26 +8,15 @@ export default function Header({auth}) {
     const [user] = UserContext.useUser();
 
     const renderContent = () => {
-        switch (auth) {
-            case null:
-                return;
-            case false:
-                return (
-                    <div className="header-links" id="navbarSupportedContent">
-                        <Link to={'/login'}>Post Event</Link>
-                    </div>
-                );
-            default:
-                return (
-                    <div className="header-links">
-                        <Link to={'/'}>Make an Appointment</Link>
-                        {user.admin ? (
-                        <Link to={'/AllPatients'}>See Patient list</Link>
-                        ) : null }
-                        <a href="/api/logout">Logout</a>
-                    </div>
-                )
-        }
+        return (
+            <div className="header-links">
+                <Link to={'/'}>Make an Appointment</Link>
+                {user.admin ? (
+                <Link to={'/AllPatients'}>See Patient list</Link>
+                ) : null }
+                <a href="/api/logout">Logout</a>
+            </div>
+        );
     }
 
     return (

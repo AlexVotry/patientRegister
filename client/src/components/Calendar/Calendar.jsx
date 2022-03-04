@@ -14,11 +14,9 @@ const styles = {
 };
 
 class Calendar extends Component {
-
     constructor(props) {
         super(props);
         const { user } = props;
-        console.log('userCalendar:', user.firstName);
         const name = `${user.firstName} ${user.lastName}`;
         const phone = user.phone;
         this.state = {
@@ -36,17 +34,21 @@ class Calendar extends Component {
                     start: args.start,
                     end: args.end,
                     id: DayPilot.guid(),
-                    text: modal.result
+                    text: `${name} ${phone}`
                 }
                 dp.events.add(newEvent);
                 apiAgents.Appointments.add(newEvent);
-                console.log('events:', this.state.events);
+            },
+            onBeforeEventRender: args => {
+                args.data.backColor = '#6c5b7b';
+                args.data.barHidden = true;
+                args.data.fontColor = 'white';
+                args.data.borderColor = "darker";
             },
             onEventClick: async (args) => {
                 const e = args.e;
-                console.log('e:', e);
                 e.data.text = `<div>${e.data.name}<div><p>${e.data.phone}<p>`;
-                this.showDetails(e);
+                if (user.admin) this.showDetails(e);
             }
         };
     }
@@ -56,20 +58,26 @@ class Calendar extends Component {
     }
     async loadEvents() {
         try {
-            const events = await apiAgents.Appointments.list();
+            const apiEvents = await apiAgents.Appointments.list();
+            let events = apiEvents;
+            if (!this.props.user.admin) {
+                events = await apiEvents.map((event) => {
+                    event.text = 'scheduled';
+                    return event;
+                })
+            }
             this.setState({events});
         } catch (e) {
             console.log(e);
         }
     }
-
+    
     componentDidMount() {
         this.loadEvents();
     }
 
     render() {
         const {...config} = this.state;
-        console.log('state:', this.state);
         return (
             <div style={styles.wrap}>
                 <div style={styles.left}>

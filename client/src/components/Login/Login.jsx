@@ -30,7 +30,6 @@ export default function Login ({setShow, setShowForm}) {
     const handleSubmit = (e) => {
         e.preventDefault();
         loadUser();
-        console.log('user:', user);
     };
 
     return (

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Login from './Login';
-import PatientInfo from '../PatientInfo/PatientInfo';
+import RegistrationForm from '../PatientInfo/RegistrationForm';
 import booth from '../../assets/booth.png';
 import './Login.css';
 
@@ -18,7 +18,7 @@ export default function Auth() {
             return <Login setShow={setShow} setShowForm={setShowForm} />
         }
         if (showForm === 'register') {
-            return <PatientInfo />
+            return <RegistrationForm />
         } else {
             return (
                 <div className='welcome'>
