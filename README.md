@@ -3,23 +3,24 @@ To download this app:
 
 `git clone https://github.com/AlexVotry/patientRegister.git`
 
-in your terminal, cd into client folder and type `npm install`
+in your **terminal**:
 
-then cd into the server folder and type `npm install`
+1. cd into client *folder* and type `npm install`
+2. cd into the *server* folder and type `npm install`
+3. in both *client* and *server* type `npm start` .
 
-then type `npm start` in both client and server.
+*This app connects to a mongodb in the cloud.*
 
-this app connects to a mongodb in the cloud.
+*User can login or register.  The login is authenticated with passport-local-mongoose.*
 
-User can login or register.  The login is authenticated with passport-local-mongoose. 
-
-You can login as an administrator:
-
+### You can login as an administrator:
 `email: drwho@email.com, pw: secret`
 
-or you can register using whatever info you like.
+### or you can register using whatever info you like.
 
-You will be sent to the calendar and you can choose when to make an appointment.
+The Nav bar will send you to the scheduler or (if admin) the patient list.
+
+The can choose on the calendar when to make an appointment. Other Appointments are visible.
 
 This app fulfills these requirements:
 Requirements​:
@@ -28,13 +29,15 @@ Requirements​:
 
 This was an exercise that I needed to finish in a couple days after work. 
 Things I would've liked to do:
-testing,
-error handling,
-validation of inputs,
-editing and removing appointments,
-editing and removing patients,
-admins ability to add other admins,
-use websocket for scheduling to be real-time,
+1. testing,
+2. error handling,
+3. validation of inputs,
+4. editing and removing appointments,
+5. editing and removing patients,
+6. admins ability to add other admins,
+7. use websocket for scheduling to be real-time,
+8. put convert css into scss or inline styles,
+9. improve the style of the calendar and the styles in general.
 
 Thank you for taking the time to look. I currently have a full time job along with other commitments so spending 48hrs of my free time would be difficult to manage inside a week.
 

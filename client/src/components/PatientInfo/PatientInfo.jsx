@@ -1,48 +1,31 @@
-import React, { useState } from 'react';
-import Input from './Input';
-import UploadImage from './UploadImage';
-import apiAgents from '../../service/apiAgent';
-import initUser from '../../service/UserInit';
-import UserContext from '../../contexts/UserContext';
+import React from 'react';
+import { Image, Transformation } from 'cloudinary-react';
 
-export default function PatientInfo() {
-    const [patient, setPatient] = useState(initUser);
-    const [, setUser] = UserContext.useUser();
-    const handleChange = (e) => {
-        const key = e.target.id;
-        const val = e.target.value;
-        setPatient( prevState => ({ ...prevState, [key]: val.toString() }));
-    };
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        if (patient.imageId) {
-            try {
-                apiAgents.Users.add(patient);
-            } catch (e) {
-                console.log('new patient error:', e);
-            }
-            setUser(patient);
-        }
-    };
-
-    return (
-        <form onSubmit={handleSubmit}>
-            <Input label="First Name" id="firstName" handleChange={handleChange} />
-            <Input label="Last Name" id="lastName" handleChange={handleChange} />
-            <Input label="Date of Birth" type="date" id="birthDate" handleChange={handleChange} />
-            <small>Format: 123-456-7890</small>
-            <Input label="Phone Number" type="tel" id="phone" handleChange={handleChange} />
-            <Input label="email" type="email" id="email" handleChange={handleChange} />
-            <Input label="Street Address" id="streetAddress" handleChange={handleChange} />
-            <Input label="City" id="city" handleChange={handleChange} />
-            <Input label="State" id="state" handleChange={handleChange} />
-            <Input label="Zip code" id="zip" handleChange={handleChange} />
-            <Input label="Password" id="password" handleChange={handleChange} />
-            <div className="button-row">
-                <UploadImage setPatient={setPatient} />
-                <button type="submit" className="submit-button">Submit</button>
-            </div>
-        </form>
-    )
+export default function PatientInfo ({patient}) {
+    const { email, birthDate } = patient;
+    const dob = new Date(birthDate);
+    const birth = birthDate ? dob.toDateString().split(' ').slice(1).join(' ') : null;
+    
+        return (
+            <>
+                <h2>{patient.firstName} {patient.lastName}</h2>
+                <div>birth: <span className="bolden">{birth}</span></div>
+                <div>phone: <span className="bolden">{patient.phone}</span></div>
+                <p>email: <span className="bolden">{email}</span></p>
+                <div className="address-box">
+                    <p>address:</p>
+                    <div className="address-data">
+                        <div className="bolden" >{patient.streetAddress}</div>
+                        <div className="address-line2" >
+                            <p className="bolden">{patient.city}</p>
+                            <p className="bolden">{patient.state}, </p>
+                            <p className="bolden">{patient.zip}</p>
+                        </div>
+                    </div>
+                </div>
+                <Image cloudName="aleximages" publicId={patient.imageId} style={{ marginRight: '10px', borderRadius: '10px' }}>
+                    <Transformation crop="pad" width="100" height="100" />
+                </Image>
+            </>
+        )
 }

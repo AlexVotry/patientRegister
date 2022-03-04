@@ -1,6 +1,7 @@
 import React, { useCallback } from 'react';
 import Calendar from '../Calendar/Calendar';
-import PatientInfo from '../PatientInfo/PatientInfo';
+// import PatientInfo from '../PatientInfo/PatientInfo';
+import RegistrationForm from '../PatientInfo/RegistrationForm';
 import UserContext from '../../contexts/UserContext';
 
 export default function Home() {
@@ -15,7 +16,7 @@ export default function Home() {
 
     return (
         <>
-            {user.email ? null : <PatientInfo />}
+            {user.email ? null : <RegistrationForm />}
             {showCalendar()}
         </>
     )
