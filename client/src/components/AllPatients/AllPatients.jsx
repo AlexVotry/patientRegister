@@ -3,7 +3,6 @@ import apiAgents from '../../service/apiAgent';
 import Calendar from '../Calendar/Calendar';
 import PatientInfo from '../PatientInfo/PatientInfo';
 import UserContext from '../../contexts/UserContext';
-import { Image, Transformation } from 'cloudinary-react';
 import './AllPatients.css';
 
 export default function AllPatients() {
@@ -32,7 +31,7 @@ export default function AllPatients() {
 
     const renderRestOfData = (patient) => {
         const { email } = patient;
-        
+
         if (chosen[email] && !show)
         return (
             <div className="patient-popup">

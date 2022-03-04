@@ -6,7 +6,7 @@ import './Login.css';
 
 export default function Login ({setShow, setShowForm}) {
     const [formInfo, setFormInfo] = useState({email: '', password: ''});
-    const [user, setUser] = UserContext.useUser();
+    const [, setUser] = UserContext.useUser();
 
     const loadUser = async () => {
         try {
